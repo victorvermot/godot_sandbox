@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://cv7u5to81ldwg"]
+
+[ext_resource type="Texture2D" uid="uid://cx87ufu1v12d7" path="res://assets/sprites/player-Sheet.png" id="1_r4yw8"]
+[ext_resource type="Script" path="res://assets/sprites/playerMovement.gd" id="1_w75g6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acbex"]
+atlas = ExtResource("1_r4yw8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72y0m"]
+atlas = ExtResource("1_r4yw8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbus1"]
+atlas = ExtResource("1_r4yw8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f631e"]
+atlas = ExtResource("1_r4yw8")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kc1w"]
+atlas = ExtResource("1_r4yw8")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o14ll"]
+atlas = ExtResource("1_r4yw8")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dsl0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acbex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72y0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbus1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f631e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kc1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o14ll")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbkyq"]
+radius = 6.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_w75g6")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+sprite_frames = SubResource("SpriteFrames_7dsl0")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.955318
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_sbkyq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -50)
+zoom = Vector2(4, 4)
+limit_bottom = 120
+limit_smoothed = true
