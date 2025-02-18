@@ -68,9 +68,9 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 5
 sprite_frames = SubResource("SpriteFrames_7dsl0")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.955318
+frame_progress = 0.627867
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
