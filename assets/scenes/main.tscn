@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cfrv23r87sxjv"]
+[gd_scene load_steps=8 format=4 uid="uid://cfrv23r87sxjv"]
 
 [ext_resource type="PackedScene" uid="uid://cv7u5to81ldwg" path="res://assets/scenes/player.tscn" id="1_hapdu"]
 [ext_resource type="PackedScene" uid="uid://dre58pjh6spox" path="res://assets/scenes/outline.tscn" id="2_5lfpd"]
 [ext_resource type="Texture2D" uid="uid://dhittcw3l0uua" path="res://assets/sprites/tileset.png" id="2_68nvk"]
 [ext_resource type="PackedScene" uid="uid://bsehfj3xyhung" path="res://assets/scenes/hud.tscn" id="4_sjcbh"]
+[ext_resource type="PackedScene" uid="uid://coifrka2kijka" path="res://assets/scenes/coin.tscn" id="5_52das"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tufe7"]
 texture = ExtResource("2_68nvk")
@@ -44,9 +45,12 @@ tile_map_data = PackedByteArray("AAD//wEAAQABAAAAAAAAAAEAAQABAAAAAAABAAEAAQABAAA
 tile_set = SubResource("TileSet_62qjx")
 
 [node name="Outline" parent="." instance=ExtResource("2_5lfpd")]
-position = Vector2(114, -10)
+position = Vector2(-64, -3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("4_sjcbh")]
 size_flags_horizontal = 0
+
+[node name="Coin" parent="." instance=ExtResource("5_52das")]
+position = Vector2(51, 1)

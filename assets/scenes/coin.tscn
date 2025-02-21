@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://coifrka2kijka"]
+
+[ext_resource type="Shader" path="res://assets/resources/shaders/coin.gdshader" id="1_6cdgh"]
+[ext_resource type="Texture2D" uid="uid://d34uxp5g817ml" path="res://assets/sprites/coin.png" id="1_bak4b"]
+[ext_resource type="Script" path="res://assets/scenes/coin.gd" id="2_efg2j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yspmf"]
+shader = ExtResource("1_6cdgh")
+shader_parameter/new_color = Color(0.839216, 0.584314, 0.839216, 1)
+shader_parameter/old_color = Color(0.984314, 0.94902, 0.211765, 1)
+shader_parameter/color_threshold = null
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sinm5"]
+radius = 8.0
+
+[node name="Coin" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_yspmf")
+texture = ExtResource("1_bak4b")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_efg2j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_sinm5")
+debug_color = Color(0, 0.6, 0.701961, 0.447059)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
