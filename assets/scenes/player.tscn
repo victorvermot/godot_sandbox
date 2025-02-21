@@ -70,7 +70,7 @@ z_index = 5
 sprite_frames = SubResource("SpriteFrames_7dsl0")
 animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.627867
+frame_progress = 0.591767
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
