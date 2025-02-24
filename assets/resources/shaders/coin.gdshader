@@ -4,10 +4,6 @@ uniform vec4 new_color : source_color;
 uniform vec4 old_color : source_color;
 uniform float color_threshold : hint_range(0.0, 1.0, 0.001);
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
 void fragment() {
 	vec4 current_color = texture(TEXTURE, UV);
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk5reays3i1s8"]
+
+[ext_resource type="Shader" path="res://assets/resources/shaders/ballon.gdshader" id="1_x2n0l"]
+[ext_resource type="Texture2D" uid="uid://dokmyvl4ix4r2" path="res://assets/sprites/ballon.png" id="2_6e1l1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6m1g1"]
+shader = ExtResource("1_x2n0l")
+shader_parameter/speed = null
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6m1g1")
+texture = ExtResource("2_6e1l1")
