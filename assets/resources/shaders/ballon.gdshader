@@ -3,7 +3,7 @@ uniform float speed;
 
 void vertex() {
 	if (VERTEX.y <= 0.0) {
-		VERTEX += vec2(sin(TIME * 5.2), 0);	
+		VERTEX += vec2(sin(TIME * 5.2), 0);
 	}
 }
 

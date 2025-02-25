@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://coifrka2kijka"]
+[gd_scene load_steps=11 format=3 uid="uid://coifrka2kijka"]
 
 [ext_resource type="Shader" path="res://assets/resources/shaders/coin.gdshader" id="1_6cdgh"]
 [ext_resource type="Texture2D" uid="uid://d34uxp5g817ml" path="res://assets/sprites/coin.png" id="1_bak4b"]
+[ext_resource type="Script" path="res://assets/scenes/coinAnimation.gd" id="1_xlmfu"]
 [ext_resource type="Script" path="res://assets/scenes/coin.gd" id="2_efg2j"]
+[ext_resource type="AudioStream" uid="uid://dnqqyjs6a23kf" path="res://assets/sounds/coin.wav" id="5_f3ceu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yspmf"]
 shader = ExtResource("1_6cdgh")
@@ -13,7 +15,61 @@ shader_parameter/color_threshold = null
 [sub_resource type="CircleShape2D" id="CircleShape2D_sinm5"]
 radius = 8.0
 
+[sub_resource type="Animation" id="Animation_6cep1"]
+resource_name = "coin_pick_up_anim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide_coin"
+}, {
+"args": [],
+"method": &"destroy_coin"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_cgc25"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7l65"]
+_data = {
+"RESET": SubResource("Animation_cgc25"),
+"coin_pick_up_anim": SubResource("Animation_6cep1")
+}
+
 [node name="Coin" type="Node2D"]
+script = ExtResource("1_xlmfu")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,5 +82,15 @@ script = ExtResource("2_efg2j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_sinm5")
 debug_color = Color(0, 0.6, 0.701961, 0.447059)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_f3ceu")
+volume_db = -5.445
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_e7l65")
+}
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
