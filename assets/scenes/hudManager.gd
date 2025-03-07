@@ -1,8 +1,10 @@
 extends Control
 
+func _on_close_button_pressed() -> void:
+	hide()
 
 func _ready() -> void:
-	SignalManager.on_button_pressed.connect(_on_button_pressed)
+	SignalManager.on_build_ui_opened.connect(on_build_ui_opened)
 
-func _on_button_pressed() -> void:
-	print("Baggel")
+func on_build_ui_opened(scene: Node):
+	visible = not visible

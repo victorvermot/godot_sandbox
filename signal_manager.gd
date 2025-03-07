@@ -1,3 +1,4 @@
 extends Node
 
-signal on_button_pressed
+signal on_build_ui_opened
+signal on_building_built
