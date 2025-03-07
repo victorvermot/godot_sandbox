@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Building" load_steps=3 format=3 uid="uid://c5yi482qsw66o"]
+
+[ext_resource type="PackedScene" uid="uid://djs8rc0hpuhhp" path="res://assets/scenes/shop.tscn" id="1_bmiha"]
+[ext_resource type="Script" uid="uid://cilek1v68m2o8" path="res://building.gd" id="1_ejyge"]
+
+[resource]
+script = ExtResource("1_ejyge")
+generateTimer = 10.0
+type = 0
+scene = ExtResource("1_bmiha")
+metadata/_custom_type_script = "uid://cilek1v68m2o8"

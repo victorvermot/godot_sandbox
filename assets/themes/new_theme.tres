@@ -3,4 +3,5 @@
 [resource]
 /colors/red = Color(0.729983, 0.233848, 0.759211, 1)
 Button/colors/font_color = Color(0.71935, 0.957516, 0.573881, 1)
+Button/font_sizes/font_size = 32
 HBoxContainer/constants/separation = 200

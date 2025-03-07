@@ -1,7 +1,6 @@
 extends Area2D
 
 @export var sprite : Sprite2D
-@export var ui : CanvasItem
 
 var isPlayerInCollider : bool
 
@@ -11,10 +10,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("build"):
 		if isPlayerInCollider:
-			ui.visible = !ui.visible;
+			SignalManager.on_build_ui_opened.emit(owner)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
