@@ -49,11 +49,11 @@ tile_map_data = PackedByteArray("AAD//wEAAQABAAAAAAAAAAEAAQABAAAAAAABAAEAAQABAAA
 tile_set = SubResource("TileSet_62qjx")
 
 [node name="SpawnPos" parent="." instance=ExtResource("2_5lfpd")]
-position = Vector2(-64, -3)
+position = Vector2(-66, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="ShopUICanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource("4_sjcbh")]
+[node name="Control" parent="ShopUICanvasLayer" instance=ExtResource("4_sjcbh")]
 visible = false
 size_flags_horizontal = 0
 
@@ -66,5 +66,3 @@ position = Vector2(120, -6)
 [node name="BuildManager" type="Node" parent="."]
 script = ExtResource("7_xplbd")
 building_list = Array[ExtResource("8_p5d64")]([ExtResource("8_6rsl6")])
-
-[editable path="SpawnPos"]

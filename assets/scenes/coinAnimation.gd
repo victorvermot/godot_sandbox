@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func hide_coin() -> void:
 	print("Hiding coin")
 	hide()

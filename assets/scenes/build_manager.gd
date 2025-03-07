@@ -17,10 +17,8 @@ func on_build(type: EnumManager.BUILDING_TYPE) -> void:
 	if not scene_to_replace:
 		return
 	var obj = building_dict[type].instantiate()
-	print(scene_to_replace.name)
 	var sprite_transform = scene_to_replace.get_child(0).transform
 	scene_to_replace.get_child(0).queue_free()
-	obj.get_child(0).transform = sprite_transform
 	scene_to_replace.add_child(obj)
 
 	scene_to_replace = null

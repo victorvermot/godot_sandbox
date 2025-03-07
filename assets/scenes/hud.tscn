@@ -74,6 +74,7 @@ size_flags_vertical = 0
 text = " X "
 script = ExtResource("4_tjl0v")
 
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/GridContainer/BuyButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/GridContainer/BuyButton" to="MarginContainer/PanelContainer/MarginContainer/GridContainer/BuyButton" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/GridContainer/BuyButton2" to="MarginContainer/PanelContainer/MarginContainer/GridContainer/BuyButton2" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/CloseButton" to="." method="_on_close_button_pressed"]
